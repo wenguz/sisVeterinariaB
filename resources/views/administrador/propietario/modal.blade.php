@@ -1,3 +1,4 @@
+<!--Ventana emergente para confirmar que se eliminara un registro -->
 <div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$pr->idpropietario}}">
 	{{Form::Open(array('action'=>array('PropietarioController@destroy',$pr->idpropietario),'method'=>'delete'))}}
 	<div class="modal-dialog">

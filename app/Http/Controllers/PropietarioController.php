@@ -47,11 +47,12 @@ class PropietarioController extends Controller
 
         return Redirect::to('administrador/propietario');
     }
-
+//Mostrar datos del propietario
     public function show($id)
     {
         return view("administrador.propietario.show", ["propietario" => propietario::findOrFail($id)]);
     }
+    //editar datos del propietario
      public function edit($id)
     {
         return view("administrador.propietario.edit", ["propietario" => Propietario::findOrfail($id)]);

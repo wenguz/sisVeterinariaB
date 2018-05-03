@@ -14,6 +14,7 @@
                         <i class="fa fa-angle-right">
                         </i>
                         Listado del Propietarios
+                        <!--Crea registro del propietario -->
                         <a class="btn btn-success btn-xs" href="propietario/create">
                             <i class="fa fa-plus">
                                 Nuevo
@@ -82,17 +83,19 @@
                                         {{ $pr->rfid }}
                                     </td>
                                     <td>
+                                    <!-- Edita datos del propietario-->
                                         <a class="btn btn-warning btn-xs" href="{{URL::action('PropietarioController@edit',$pr->idpropietario)}}" type="submit">
                                             <i class="fa fa-pencil">
                                                 Editar
                                             </i>
                                         </a>
+                                        <!-- Eliminar registro de propietario_deberia modificarse el estado en lugar de eliminarse-->
                                         <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$pr->idpropietario}}" data-toggle="modal" href="">
                                             <i class="fa fa-times">
                                                 Eliminar
                                             </i>
                                         </a>
-                                      
+                                      <!--Agregar un boton para registrar mascota -->
                                     </td>
                                 </tr>
                                 @include('administrador.propietario.modal')
