@@ -24,7 +24,7 @@
                                 {{$error}}
                             </li>
                             @endforeach
-                        </ul>
+                        </ul>hshsh
                     </div>
                     @endif
       {!!Form::open(array('url'=>'administrador/propietario','method'=>'POST','autocomplete'=>'off'))!!}
