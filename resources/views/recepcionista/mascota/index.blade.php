@@ -5,7 +5,7 @@
         <h3>
             <i class="fa fa-angle-right">
             </i>
-            Propietario
+            Mascota
         </h3>
         <div class="row mt">
             <div class="col-lg-12">
@@ -13,14 +13,14 @@
                     <h4>
                         <i class="fa fa-angle-right">
                         </i>
-                        Listado del Propietarios
-                        <a class="btn btn-success btn-xs" href="propietario/create">
+                        Listado de las mascotas
+                        <a class="btn btn-success btn-xs" href="mascota/create">
                             <i class="fa fa-plus">
                                 Nuevo
                             </i>
                         </a>
                     </h4>
-                    @include('administrador.propietario.search')
+                    @include('administrador.mascota.search')
                     <section id="no-more-tables">
                         <table class="table table-bordered table-striped table-condensed cf">
                             <thead class="cf">
@@ -32,77 +32,84 @@
                                         NOMBRE
                                     </th>
                                     <th>
-                                        AP. PATERNO
+                                        RAZA
                                     </th>
                                     <th>
-                                        AP. MATERNO
+                                        ESPECIE
                                     </th>
                                     <th>
-                                        TELEFONO
+                                        SEXO
                                     </th>
                                     <th>
-                                        C.I.
+                                        DESCRIPCION
                                     </th>
                                     <th>
-                                        DIRECCION
+                                        FECHA REGISTRO
                                     </th>
                                     <th>
-                                        CODIGO RFID
+                                        PROPIETARIO
                                     </th>
                                     <th width="200px">
                                         OPCIONES
                                     </th>
                                 </tr>
                             </thead>
-                            @foreach ($Propietario as $pr)
+                            @foreach ($Mascota as $m)
                             <tbody>
                                 <tr>
                                     <td>
-                                        {{ $pr->idpropietario }}
+                                        {{ $m->idmascota }}
                                     </td>
                                     <td>
-                                        {{ $pr->nombre }}
+                                        {{ $m->nombre }}
                                     </td>
                                     <td>
-                                        {{ $pr->ap_paterno }}
+                                        {{ $m->raza }}
                                     </td>
                                     <td>
-                                        {{ $pr->ap_materno }}
+                                        {{ $m->especie }}
                                     </td>
                                     <td>
-                                        {{ $pr->telf }}
+                                        {{ $m->sexo }}
                                     </td>
                                     <td>
-                                        {{ $pr->ci }}
+                                        {{ $m->descripcion }}
                                     </td>
                                     <td>
-                                        {{ $pr->direccion }}
+                                        {{ $m->fecha_registro }}
                                     </td>
                                     <td>
-                                        {{ $pr->rfid }}
+                                        {{ $m->pn }}
+                                        {{ $m->pp }}
+                                        {{ $m->pm }}
                                     </td>
                                     <td>
-                                        <a class="btn btn-warning btn-xs" href="{{URL::action('PropietarioController@edit',$pr->idpropietario)}}" type="submit">
+                                        <a class="btn btn-warning btn-xs" href="{{URL::action('MascotaController@edit',$m->idmascota)}}" type="submit">
                                             <i class="fa fa-pencil">
                                                 Editar
                                             </i>
                                         </a>
-                                        <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$pr->idpropietario}}" data-toggle="modal" href="">
+                                        <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$m->idmascota}}" data-toggle="modal" href="">
                                             <i class="fa fa-times">
                                                 Eliminar
                                             </i>
                                         </a>
                                     </td>
                                 </tr>
-                                @include('administrador.propietario.modal')
+                                @include('administrador.mascota.modal')
                             </tbody>
                             @endforeach
                         </table>
                     </section>
                 </div>
-                {{$Propietario->render()}}
+                <!-- /content-panel -->
+                {{$Mascota->render()}}
             </div>
+            <!-- /col-lg-12 -->
         </div>
+        <!-- /row -->
     </section>
+    <!--/wrapper -->
 </section>
+<!-- /MAIN CONTENT -->
 @endsection

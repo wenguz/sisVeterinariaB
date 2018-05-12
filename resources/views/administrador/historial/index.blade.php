@@ -5,7 +5,7 @@
         <h3>
             <i class="fa fa-angle-right">
             </i>
-            Propietario
+            Historial
         </h3>
         <div class="row mt">
             <div class="col-lg-12">
@@ -13,14 +13,14 @@
                     <h4>
                         <i class="fa fa-angle-right">
                         </i>
-                        Listado del Propietarios
-                        <a class="btn btn-success btn-xs" href="propietario/create">
+                        Listado del historiales
+                        <a class="btn btn-success btn-xs" href="">
                             <i class="fa fa-plus">
                                 Nuevo
                             </i>
                         </a>
                     </h4>
-                    @include('administrador.propietario.search')
+                    @include('administrador.historial.search')
                     <section id="no-more-tables">
                         <table class="table table-bordered table-striped table-condensed cf">
                             <thead class="cf">
@@ -29,80 +29,88 @@
                                         ID
                                     </th>
                                     <th>
-                                        NOMBRE
+                                        FECHA
                                     </th>
                                     <th>
-                                        AP. PATERNO
+                                        MASCOTA
                                     </th>
                                     <th>
-                                        AP. MATERNO
+                                        PROPIETARIO
                                     </th>
                                     <th>
-                                        TELEFONO
+                                        ESPECIE
                                     </th>
                                     <th>
-                                        C.I.
+                                        RAZON DE ATENCION
                                     </th>
                                     <th>
-                                        DIRECCION
+                                        TRATAMIENTO
                                     </th>
                                     <th>
-                                        CODIGO RFID
+                                        ATENDIDO POR ...
                                     </th>
                                     <th width="200px">
                                         OPCIONES
                                     </th>
                                 </tr>
                             </thead>
-                            @foreach ($Propietario as $pr)
+                            @foreach ($Historial as $h)
                             <tbody>
                                 <tr>
                                     <td>
-                                        {{ $pr->idpropietario }}
+                                        {{ $h->id }}
                                     </td>
                                     <td>
-                                        {{ $pr->nombre }}
+                                        {{ $h->fecha }}
                                     </td>
                                     <td>
-                                        {{ $pr->ap_paterno }}
+                                        {{ $h->mn }}
                                     </td>
                                     <td>
-                                        {{ $pr->ap_materno }}
+                                        {{ $h->prn }}
+                                        {{ $h->prap }}
+                                        {{ $h->pram }}
                                     </td>
                                     <td>
-                                        {{ $pr->telf }}
+                                        {{ $h->e }}
                                     </td>
                                     <td>
-                                        {{ $pr->ci }}
+                                        {{ $h->obs }}
                                     </td>
                                     <td>
-                                        {{ $pr->direccion }}
+                                        {{ $h->des }}
                                     </td>
                                     <td>
-                                        {{ $pr->rfid }}
+                                        {{ $h->pn }}
+                                        {{ $h->pap }}
+                                        {{ $h->pam }}
                                     </td>
                                     <td>
-                                        <a class="btn btn-warning btn-xs" href="{{URL::action('PropietarioController@edit',$pr->idpropietario)}}" type="submit">
+                                        <a class="btn btn-warning btn-xs" href="" type="submit">
                                             <i class="fa fa-pencil">
                                                 Editar
                                             </i>
                                         </a>
-                                        <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$pr->idpropietario}}" data-toggle="modal" href="">
+                                        <a class="btn btn-danger btn-xs" href="">
                                             <i class="fa fa-times">
                                                 Eliminar
                                             </i>
                                         </a>
                                     </td>
                                 </tr>
-                                @include('administrador.propietario.modal')
                             </tbody>
                             @endforeach
                         </table>
                     </section>
                 </div>
-                {{$Propietario->render()}}
+                <!-- /content-panel -->
+                {{$Historial->render()}}
             </div>
+            <!-- /col-lg-12 -->
         </div>
+        <!-- /row -->
     </section>
+    <!--/wrapper -->
 </section>
+<!-- /MAIN CONTENT -->
 @endsection

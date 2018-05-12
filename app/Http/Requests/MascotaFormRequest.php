@@ -4,7 +4,7 @@ namespace sisVeterinaria\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PersonalFormRequest extends FormRequest
+class MascotaFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,13 @@ class PersonalFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'     => 'required|max:45',
-            'ap_paterno' => 'required|max:45',
-            'ap_materno' => 'max:45',
-            'ci'         => 'required|max:8',
-            'telf'       => 'max:8',
-            'direccion'  => 'max:45',
+            'nombre'         => 'required|max:45',
+            'raza'           => 'required|max:45',
+            'especie'        => 'max:45',
+            'sexo'           => 'required|max:8',
+            'descripcion'    => 'max:100',
+            'fecha_registro' => 'max:45',
+            'idpropietario'  => 'max:8',
         ];
     }
 }

@@ -92,7 +92,6 @@
                                                 Eliminar
                                             </i>
                                         </a>
-                                        
                                     </td>
                                 </tr>
                                 @include('administrador.personal.modal')

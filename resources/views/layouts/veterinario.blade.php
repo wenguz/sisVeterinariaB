@@ -7,7 +7,7 @@
         <meta content="Dashboard" name="author"/>
         <meta content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina" name="keyword"/>
         <title>
-            ADMINISTRADOR
+            VETERINARIA
         </title>
         <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet"/>
         <link href="{{asset('assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet"/>
@@ -46,7 +46,7 @@
                 <div class="nav-collapse " id="sidebar">
                     <ul class="sidebar-menu" id="nav-accordion">
                         <li class="mt">
-                            <a href="{{url('administrador/personal')}}">
+                            <a href="{{url('administrador/propietario')}}">
                                 <i class="fa fa-dashboard">
                                 </i>
                                 <span>
@@ -125,29 +125,6 @@
                         </li>
                         <li class="sub-menu">
                             <a href="">
-                                <i class="fa fa-group">
-                                </i>
-                                <span>
-                                    Empleados
-                                </span>
-                            </a>
-                            <ul class="sub">
-                                <li>
-                                    <a href="{{url('administrador/personal')}}">
-                                        Listado de empleados
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="sub">
-                                <li>
-                                    <a href="{{ action('PersonalController@create') }}">
-                                        Registro de empleado
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="">
                                 <i class="fa fa-pencil-square-o">
                                 </i>
                                 <span>
@@ -165,10 +142,7 @@
                     </ul>
                 </div>
             </aside>
-            <!--sidebar end-->
-            <!-- contenido -->
             @yield('contenido');
-            <!-- fin contenido -->
         </section>
         <script src="{{asset('assets/js/jquery.js')}}">
         </script>

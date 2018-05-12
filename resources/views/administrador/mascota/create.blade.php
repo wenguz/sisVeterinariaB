@@ -5,7 +5,7 @@
         <h3>
             <i class="fa fa-angle-right">
             </i>
-            Personal
+            Mascota
         </h3>
         <div class="row mt">
             <div class="col-lg-12">
@@ -13,7 +13,7 @@
                     <h4>
                         <i class="fa fa-angle-right">
                         </i>
-                        Editar: {{$personal->nombre}}
+                        Registrar nuevo mascota
                     </h4>
                     @if (count($errors)>0)
                     <div class="alert alert-danger">
@@ -26,177 +26,94 @@
                         </ul>
                     </div>
                     @endif
-      {!!Form::model($personal,['method'=>'PATCH','route'=>['personal.update', $personal->idpersonal]])!!}
+      {!!Form::open(array('url'=>'administrador/mascota','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
                     <section class="panel" id="no-more-tables">
                         <table width="100%">
                             <tr>
-                                <td>
-                                </td>
-                                <td colspan="2" width="33%">
-                                    <br>
-                                        <h4>
-                                            <center>
-                                                DATOS PERSONALES
-                                            </center>
-                                        </h4>
-                                    </br>
-                                </td>
-                                <td width="33%">
-                                    <br>
-                                        <h4>
-                                            <center>
-                                                DATOS PARA USUARIO
-                                            </center>
-                                        </h4>
-                                    </br>
-                                </td>
-                                <td width="8%">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                                <td width="15%">
                                 </td>
                                 <td width="33%">
                                     <div class="form-group">
                                         <br>
                                             <label class="col-sm-4 col-sm-4 control-label">
-                                                NOMBRE:
+                                                PROPIETARIO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="nombre" type="text" value="{{$personal->nombre}}">
-                                                </input>
-                                            </div>
-                                        </br>
-                                    </div>
-                                </td>
-                                <td width="33%">
-                                    <div class="form-group">
-                                        <br>
-                                            <label class="col-sm-4 col-sm-4 control-label">
-                                                CI:
-                                            </label>
-                                            <div class="col-sm-12">
-                                                <input class="form-control" name="ci" type="text" value="{{$personal->ci}}">
-                                                </input>
-                                            </div>
-                                        </br>
-                                    </div>
-                                </td>
-                                <td width="33%">
-                                    <div class="form-group">
-                                        <br>
-                                            <label class="col-sm-4 col-sm-4 control-label">
-                                                USUARIO:
-                                            </label>
-                                            <div class="col-sm-12">
-                                                <input class="form-control" name="usuario" type="text" value="{{$usu->usuario}}">
-                                                </input>
-                                            </div>
-                                        </br>
-                                    </div>
-                                </td>
-                                <td width="8%">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                </td>
-                                <td width="33%">
-                                    <div class="form-group">
-                                        <br>
-                                            <label class="col-sm-4 col-sm-4 control-label">
-                                                AP. PATERNO:
-                                            </label>
-                                            <div class="col-sm-12">
-                                                <input class="form-control" name="ap_paterno" type="text" value="{{$personal->ap_paterno}}">
-                                                </input>
-                                            </div>
-                                        </br>
-                                    </div>
-                                </td>
-                                <td width="33%">
-                                    <div class="form-group">
-                                        <br>
-                                            <label class="col-sm-4 col-sm-4 control-label">
-                                                TELEFONO:
-                                            </label>
-                                            <div class="col-sm-12">
-                                                <input class="form-control" name="telf" type="text" value="{{$personal->telf}}">
-                                                </input>
-                                            </div>
-                                        </br>
-                                    </div>
-                                </td>
-                                <td width="33%">
-                                    <div class="form-group">
-                                        <br>
-                                            <label class="col-sm-4 col-sm-4 control-label">
-                                                PASSWORD:
-                                            </label>
-                                            <div class="col-sm-12">
-                                                <input class="form-control" name="pass" type="text" value="{{$usu->pass}}">
-                                                </input>
-                                            </div>
-                                        </br>
-                                    </div>
-                                </td>
-                                <td width="8%">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                </td>
-                                <td width="33%">
-                                    <div class="form-group">
-                                        <br>
-                                            <label class="col-sm-4 col-sm-4 control-label">
-                                                AP. MATERNO:
-                                            </label>
-                                            <div class="col-sm-12">
-                                                <input class="form-control" name="ap_materno" type="text" value="{{$personal->ap_materno}}">
-                                                </input>
-                                            </div>
-                                        </br>
-                                    </div>
-                                </td>
-                                <td width="33%">
-                                    <div class="form-group">
-                                        <br>
-                                            <label class="col-sm-4 col-sm-4 control-label">
-                                                DIRECCION:
-                                            </label>
-                                            <div class="col-sm-12">
-                                                <input class="form-control" name="direccion" type="text" value="{{$personal->direccion}}">
-                                                </input>
-                                            </div>
-                                        </br>
-                                    </div>
-                                </td>
-                                <td width="33%">
-                                    <div class="form-group">
-                                        <br>
-                                            <label class="col-sm-4 col-sm-4 control-label">
-                                                CARGO:
-                                            </label>
-                                            <div class="col-sm-12">
-                                                <select class="form-control" name="cargo">
-                                                    @foreach ($tipos as $t)
-                                                     @if ($usu->idtipo == $t->idtipo )
-                                                    <option selected="" value="{{$t->idtipo}}">
-                                                        {{$t->cargo}}
+                                                <select class="form-control" name="propietario">
+                                                    @foreach ($propietario as $p)
+                                                    <option value="{{$p->idpropietario}}">
+                                                        {{$p->idpropietario}} .-
+                                                        {{$p->nombre}}
+                                                        {{$p->ap_paterno}}
+                                                        {{$p->ap_materno}}
                                                     </option>
-                                                    @else
-                                                    <option value="{{$t->idtipo}}">
-                                                        {{$t->cargo}}
-                                                    </option>
-                                                    @endif
-                                                 @endforeach
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </br>
                                     </div>
                                 </td>
+                                <td width="33%">
+                                    <div class="form-group">
+                                        <br>
+                                            <label class="col-sm-4 col-sm-4 control-label">
+                                                FECHA:
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <input class="form-control" data-format="yyyy-MM-dd" name="fecha" type="date">
+                                                </input>
+                                            </div>
+                                        </br>
+                                    </div>
+                                </td>
+                                <td width="8%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                </td>
+                                <td width="33%">
+                                    <div class="form-group">
+                                        <br>
+                                            <label class="col-sm-6 col-sm-6 control-label">
+                                                NOMBRE DE LA MASCOTA:
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <input class="form-control" name="nombre" type="text">
+                                                </input>
+                                            </div>
+                                        </br>
+                                    </div>
+                                </td>
+                                <td width="33%">
+                                    <div class="form-group">
+                                        <br>
+                                            <label class="col-sm-4 col-sm-4 control-label">
+                                                ESPECIE:
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <input class="form-control" name="especie" type="text">
+                                                </input>
+                                            </div>
+                                        </br>
+                                    </div>
+                                </td>
+                                <td rowspan="2" width="33%">
+                                    <div class="form-group">
+                                        <br>
+                                            <label class="col-sm-4 col-sm-4 control-label">
+                                                DESCRIPCION:
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <textarea class="form-control" cols="40" name="descripcion" rows="5">
+                                                </textarea>
+                                            </div>
+                                        </br>
+                                    </div>
+                                </td>
                                 <td width="8%">
                                 </td>
                             </tr>
@@ -204,8 +121,38 @@
                                 <td>
                                 </td>
                                 <td width="33%">
+                                    <div class="form-group">
+                                        <br>
+                                            <label class="col-sm-4 col-sm-4 control-label">
+                                                RAZA:
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <input class="form-control" name="raza" type="text">
+                                                </input>
+                                            </div>
+                                        </br>
+                                    </div>
                                 </td>
                                 <td width="33%">
+                                    <div class="form-group">
+                                        <br>
+                                            <label class="col-sm-4 col-sm-4 control-label">
+                                                SEXO:
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <input class="form-control" name="sexo" type="text">
+                                                </input>
+                                            </div>
+                                        </br>
+                                    </div>
+                                </td>
+                                <td width="8%">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td colspan="3">
                                     <center>
                                         <div class="form-group">
                                             <br>
@@ -230,13 +177,8 @@
                     </section>
                     {!!Form::close()!!}
                 </div>
-                <!-- /content-panel -->
             </div>
-            <!-- /col-lg-12 -->
         </div>
-        <!-- /row -->
     </section>
-    <!--/wrapper -->
 </section>
-<!-- /MAIN CONTENT -->
 @endsection

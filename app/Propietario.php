@@ -6,23 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Propietario extends Model
 {
-    //hace referncia a la tabla de la base de datos
-    protected $table='propietario';
+    protected $table      = 'propietario';
     protected $primaryKey = 'idpropietario';
-    public $timestamps=false;
+    public $timestamps    = false;
 
-
-    protected $fillable=[
-    	'nombre',
-    	'ap_paterno',
-    	'ap_materno',
-    	'telf',
+    protected $fillable = [
+        'nombre',
+        'ap_paterno',
+        'ap_materno',
+        'telf',
         'ci',
-       	'direccion',
-       	'rfid',
+        'direccion',
+        'rfid',
     ];
 
-    protected $guarded=[
+    protected $guarded = [
 
     ];
 }

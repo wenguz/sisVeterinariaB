@@ -5,7 +5,7 @@
         <h3>
             <i class="fa fa-angle-right">
             </i>
-            Personal
+            Historial
         </h3>
         <div class="row mt">
             <div class="col-lg-12">
@@ -13,7 +13,7 @@
                     <h4>
                         <i class="fa fa-angle-right">
                         </i>
-                        Editar: {{$personal->nombre}}
+                        Registrar nueva historia
                     </h4>
                     @if (count($errors)>0)
                     <div class="alert alert-danger">
@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                     @endif
-      {!!Form::model($personal,['method'=>'PATCH','route'=>['personal.update', $personal->idpersonal]])!!}
+      {!!Form::open(array('url'=>'administrador/historial','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
                     <section class="panel" id="no-more-tables">
                         <table width="100%">
@@ -61,11 +61,20 @@
                                     <div class="form-group">
                                         <br>
                                             <label class="col-sm-4 col-sm-4 control-label">
-                                                NOMBRE:
+                                                PROPIETARIO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="nombre" type="text" value="{{$personal->nombre}}">
-                                                </input>
+                                                <select class="form-control" name="propietario">
+                                                    <option value="1">
+                                                        ADMINISTRADOR
+                                                    </option>
+                                                    <option selected="" value="2">
+                                                        VETERINARIO
+                                                    </option>
+                                                    <option value="3">
+                                                        RECEPCIONISTA
+                                                    </option>
+                                                </select>
                                             </div>
                                         </br>
                                     </div>
@@ -74,11 +83,20 @@
                                     <div class="form-group">
                                         <br>
                                             <label class="col-sm-4 col-sm-4 control-label">
-                                                CI:
+                                                MASCOTA:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="ci" type="text" value="{{$personal->ci}}">
-                                                </input>
+                                                <select class="form-control" name="mascota">
+                                                    <option value="1">
+                                                        ADMINISTRADOR
+                                                    </option>
+                                                    <option selected="" value="2">
+                                                        VETERINARIO
+                                                    </option>
+                                                    <option value="3">
+                                                        RECEPCIONISTA
+                                                    </option>
+                                                </select>
                                             </div>
                                         </br>
                                     </div>
@@ -90,7 +108,7 @@
                                                 USUARIO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="usuario" type="text" value="{{$usu->usuario}}">
+                                                <input class="form-control" name="usuario" type="text">
                                                 </input>
                                             </div>
                                         </br>
@@ -109,7 +127,7 @@
                                                 AP. PATERNO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="ap_paterno" type="text" value="{{$personal->ap_paterno}}">
+                                                <input class="form-control" name="ap_paterno" type="text">
                                                 </input>
                                             </div>
                                         </br>
@@ -122,7 +140,7 @@
                                                 TELEFONO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="telf" type="text" value="{{$personal->telf}}">
+                                                <input class="form-control" name="telf" type="text">
                                                 </input>
                                             </div>
                                         </br>
@@ -135,7 +153,7 @@
                                                 PASSWORD:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="pass" type="text" value="{{$usu->pass}}">
+                                                <input class="form-control" name="pass" type="text">
                                                 </input>
                                             </div>
                                         </br>
@@ -154,7 +172,7 @@
                                                 AP. MATERNO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="ap_materno" type="text" value="{{$personal->ap_materno}}">
+                                                <input class="form-control" name="ap_materno" type="text">
                                                 </input>
                                             </div>
                                         </br>
@@ -167,7 +185,7 @@
                                                 DIRECCION:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="direccion" type="text" value="{{$personal->direccion}}">
+                                                <input class="form-control" name="direccion" type="text">
                                                 </input>
                                             </div>
                                         </br>
@@ -181,17 +199,15 @@
                                             </label>
                                             <div class="col-sm-12">
                                                 <select class="form-control" name="cargo">
-                                                    @foreach ($tipos as $t)
-                                                     @if ($usu->idtipo == $t->idtipo )
-                                                    <option selected="" value="{{$t->idtipo}}">
-                                                        {{$t->cargo}}
+                                                    <option value="1">
+                                                        ADMINISTRADOR
                                                     </option>
-                                                    @else
-                                                    <option value="{{$t->idtipo}}">
-                                                        {{$t->cargo}}
+                                                    <option selected="" value="2">
+                                                        VETERINARIO
                                                     </option>
-                                                    @endif
-                                                 @endforeach
+                                                    <option value="3">
+                                                        RECEPCIONISTA
+                                                    </option>
                                                 </select>
                                             </div>
                                         </br>

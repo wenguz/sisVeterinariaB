@@ -24,4 +24,5 @@ class Personal extends Model
     protected $guarded=[
 
     ];
+
 }
